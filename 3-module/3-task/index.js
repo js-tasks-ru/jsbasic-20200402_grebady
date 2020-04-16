@@ -4,12 +4,9 @@
  */
 function camelize(str) {
   let arrStr = str.split("-");
-  let mappedArrStr = arrStr.map(function (word, index) {
-    if (index != 0 && word != ""){
-      return word[0].toUpperCase() + word.slice(1);
-    }else{
-      return word;
-    }git 
-  });
-  return mappedArrStr.join("");
+  let camelizedStr = arrStr[0];
+  for (let i = 1; i < arrStr.length; i++) {
+    camelizedStr += arrStr[i][0].toUpperCase() + arrStr[i].slice(1);
+  }
+  return camelizedStr;
 }
