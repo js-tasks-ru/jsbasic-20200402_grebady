@@ -5,5 +5,12 @@
  * @returns {string}
  */
 function showSalary(data, age) {
-  // ваш код...
+    return data
+      .filter(function (person) {
+            return person.age <= age;
+      })
+      .map(function (filteredPerson) {
+          return filteredPerson.name + ", " + filteredPerson.balance;
+      })
+      .join("\n");
 }
