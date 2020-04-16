@@ -5,11 +5,12 @@
  * @returns {string}
  */
 function showSalary(data, age) {
-  let strNameBalance = "";
-  for (let i = 0; i < data.length; i++) {
-    if (data[i]["age"] <= age){
-      strNameBalance += data[i]["name"] + ", " + data[i]["balance"] + "\n"
-    }
-  }
-  return strNameBalance.slice(0, strNameBalance.length - 1);
+    return data
+      .filter(function (person) {
+            return person.age <= age;
+      })
+      .map(function (filteredPerson) {
+          return filteredPerson.name + ", " + filteredPerson.balance;
+      })
+      .join("\n");
 }
