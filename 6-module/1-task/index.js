@@ -37,12 +37,15 @@ export default class UserTable {
     let thead = document.createElement("thead");
     table.append(thead);
     table.append(tbody);
+
     for (let i = 0; i < 4; i++) {
       let th = document.createElement("th");
       th.innerHTML = textMainRow[i];
       mainRow.append(th);
     }
     thead.append(mainRow);
+
+
     for (let i = 0; i < rows.length; i++) {
       let row = document.createElement("tr");
       for (let pieceOfInfo in rows[i]){
