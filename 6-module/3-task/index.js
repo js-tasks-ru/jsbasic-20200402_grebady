@@ -110,7 +110,6 @@ export default class Carousel {
     function addToCart(event) {
       if (event.target.closest(".carousel__button")){
         let productId = event.target.closest(".carousel__slide").dataset.id;
-        console.log(productId);
         carousel.dispatchEvent(new CustomEvent("product-add", { // имя события должно быть именно "product-add"
           detail: productId, // Уникальный идентификатора товара из объекта товара
           bubbles: true // это событие всплывает - это понадобится в дальнейшем
