@@ -33,12 +33,16 @@ export default class UserTable {
     let table = document.createElement("table");
     let mainRow = document.createElement("tr");
     let textMainRow = ["Имя", "Возраст", "Зарплата", "Город"];
+    let tbody = document.createElement("tbody");
+    let thead = document.createElement("thead");
+    table.append(thead);
+    table.append(tbody);
     for (let i = 0; i < 4; i++) {
       let th = document.createElement("th");
       th.innerHTML = textMainRow[i];
       mainRow.append(th);
     }
-    table.append(mainRow);
+    thead.append(mainRow);
     for (let i = 0; i < rows.length; i++) {
       let row = document.createElement("tr");
       for (let pieceOfInfo in rows[i]){
@@ -51,9 +55,9 @@ export default class UserTable {
       deleteButton.innerHTML = "X";
       th.append(deleteButton);
       row.append(th);
-      table.append(row);
+      tbody.append(row);
     }
-    document.addEventListener("click", deleteRow);
+    table.addEventListener("click", deleteRow);
     function deleteRow(event) {
         if (event.target.closest("button")){
           event.target.closest("tr").remove();
