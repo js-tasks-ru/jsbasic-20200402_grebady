@@ -2,6 +2,7 @@ import createElement from '../../assets/lib/create-element.js';
 
 export default class ProductCard {
   constructor(product) {
+    //this.product = product;
 
     //Создание скелета карточки товара
     let card = document.createElement("div");
@@ -61,7 +62,7 @@ export default class ProductCard {
       }
     }
 
-    //Ссылка на гоDOM-модель
+    //Ссылка на DOM-модель
     this.elem = card;
   }
 
