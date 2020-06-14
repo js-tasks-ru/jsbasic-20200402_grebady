@@ -39,6 +39,40 @@ export default class CartIcon {
   }
 
   updatePosition() {
-    // ваш код ...
+    let fullPageWidth = document.documentElement.offsetWidth;
+    let topCartIcon = document.querySelector(".cart-icon_visible");
+    let h1 = document.querySelector("h1");
+    if (!topCartIcon) return;
+
+    if (fullPageWidth <= 767){
+      topCartIcon.style.position = "";
+      topCartIcon.style.top = "";
+      topCartIcon.style.left = "";
+      topCartIcon.style.right = "";
+      topCartIcon.style.zIndex = "";
+      return;
+    }
+
+    if (h1.getBoundingClientRect().top > 0) {
+      topCartIcon.style.position = "";
+      topCartIcon.style.top = "";
+      topCartIcon.style.left = "";
+      topCartIcon.style.right = "";
+      topCartIcon.style.zIndex = "";
+      return;
+    }
+
+    let widthAndLeftForContainerElement = document.querySelector(".container").getBoundingClientRect().right;
+    let widthForCartIcon = topCartIcon.offsetWidth;
+    let freeSpaceAfterCartIconAdding = fullPageWidth - widthAndLeftForContainerElement - widthForCartIcon;
+
+    topCartIcon.style.position = "fixed";
+    topCartIcon.style.zIndex = 3;
+    topCartIcon.style.top = "50px";
+    if (freeSpaceAfterCartIconAdding < 20) topCartIcon.style.left = `${widthAndLeftForContainerElement - 2 - widthForCartIcon}px` ;
+    else  topCartIcon.style.left = `${widthAndLeftForContainerElement + 20}px`;
+
+
   }
+
 }
